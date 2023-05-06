@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% include 'second_navbar.html' %}
+    
+
+    <h2>{{series.name}}</h2>
+    <p>
+      {{series.bio}}
+    </p>
+    <ol class="list-post">
+      {% for blog in blogs %}
+      <li class="post">
+        <img
+          src="{{blog.main_image.url}}"
+          class="cover-image"
+        />
+        <a href="{% url 'show_blog' blog.uid  %}">
+          <h2 id="title">{{blog.title}}</h2>
+        </a>
+      </li>
+      {% endfor %}
+  
+
+    </ol>
+
+   {% endblock %}
